@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <h1>Registros <%= inicio %> <%= (inicio+5) %> | Total Registros <%= cantidad %></h1>
+    <p>Welcome to <%= title %></p>
+
+    <table>
+      <thead>
+        <th>ID PAGE: </th>
+        <th>TITLE: </th>
+        <th>TEXT: </th>
+        <th>DATA CREATED: </th>
+      </thead>
+
+        <% for(let i=0; i< chunck.length; i++){ %>
+      <tr>
+          <td><%= chunck[i].id_page %></td>
+          <td><%= chunck[i].title %></td>
+          <td><%= chunck[i].asd %></td>
+          <td><%= chunck[i].data_created %></td>
+      </tr>
+        <% } %>
+    </table>
+
+    <div>
+
+      <form action="/" method="post">
+      <% if((inicio + 5)  > cantidad){ %>
+        
+      <% }else{ %>
+        <input type="submit" value="Siguiente ..." name="siguiente">
+      <% } %>
+      </form>
+
+      <form action="/" method="post">
+      <% if(inicio <= 0){  %>
+        
+      <% }else{ %>
+          <input type="submit" value="Atras ..." name="atras">
+      <% } %>
+      </form>
+    </div>
+
+  </body>
+</html>
